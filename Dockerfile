@@ -31,8 +31,8 @@ RUN ssh-keygen -A
 RUN passwd -d ${USR}
 RUN echo 'PermitEmptyPasswords yes' >> /etc/ssh/sshd_config
 
-# # Dev Tools
-# RUN apk add git
+# Dev Tools
+RUN apk add git
 
 # EXPOSE 8000 22
 
