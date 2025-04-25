@@ -41,18 +41,18 @@ USER root
 CMD ["/usr/sbin/sshd", "-D"]
 
 
-# # TARGET: BUILD 
-# ##################################################################
-# FROM base AS build
+# TARGET: BUILD 
+##################################################################
+FROM base AS build
 
-# ENV NODE_ENV=development
+ENV NODE_ENV=development
 
-# COPY package*.json ./
-# RUN npm install
+COPY package*.json ./
+RUN npm install
 
-# COPY . .
+COPY . .
 
-# RUN npm run build
+RUN npm run build
 
 
 # # TARGET: PRODUCTION 
