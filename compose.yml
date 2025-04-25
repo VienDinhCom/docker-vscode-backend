@@ -9,9 +9,9 @@ services:
         GID: ${GID}
     volumes:
       - ./:/home/backend/project
-#     environment:
-#       - NODE_ENV=development
-#       - DATABASE_URL=postgresql://user:pass@host:5432/mydb
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://user:pass@host:5432/mydb
 #     ports:
 #       - '2280:22'
 #       - '8000:8000'
