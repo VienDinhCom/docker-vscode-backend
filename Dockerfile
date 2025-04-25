@@ -1,7 +1,7 @@
 FROM node:22-alpine AS base
 
-# ARG UID=1000
-# ARG GID=1000
+ARG UID=1000
+ARG GID=1000
 # ARG USR=backend
 
 # RUN apk add --no-cache shadow
