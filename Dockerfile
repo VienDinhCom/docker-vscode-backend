@@ -41,9 +41,9 @@ USER root
 CMD ["/usr/sbin/sshd", "-D"]
 
 
-# # TARGET: BUILD 
-# ##################################################################
-# FROM base AS build
+# TARGET: BUILD 
+##################################################################
+FROM base AS build
 
 # ENV NODE_ENV=development
 
