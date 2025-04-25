@@ -36,7 +36,7 @@ RUN apk add git
 
 EXPOSE 8000 22
 
-# USER root
+USER root
 
 # CMD ["/usr/sbin/sshd", "-D"]
 
