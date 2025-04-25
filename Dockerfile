@@ -62,8 +62,8 @@ FROM base AS production
 ENV NODE_ENV=production
 ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
-# COPY package*.json ./
-# RUN npm install
+COPY package*.json ./
+RUN npm install
 
 # COPY --from=build /home/${USR}/project/dist ./dist
 # COPY --from=build /home/${USR}/project/public ./public
