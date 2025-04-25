@@ -1,17 +1,17 @@
-# FROM node:22-alpine AS base
+FROM node:22-alpine AS base
 
-# ARG UID=1000
-# ARG GID=1000
-# ARG USR=backend
+ARG UID=1000
+ARG GID=1000
+ARG USR=backend
 
-# RUN apk add --no-cache shadow
+RUN apk add --no-cache shadow
 
-# # Nonroot User
-# RUN getent passwd ${UID} && userdel $(getent passwd ${UID} | cut -d: -f1)
-# RUN getent group ${GID} || groupadd --gid ${GID} ${USR}
-# RUN useradd --uid ${UID} --gid ${GID} -m ${USR}
+# Nonroot User
+RUN getent passwd ${UID} && userdel $(getent passwd ${UID} | cut -d: -f1)
+RUN getent group ${GID} || groupadd --gid ${GID} ${USR}
+RUN useradd --uid ${UID} --gid ${GID} -m ${USR}
 
-# WORKDIR /home/${USR}/project
+WORKDIR /home/${USR}/project
 
 
 # # TARGET: DEVELOPMENT
