@@ -14,31 +14,31 @@ RUN useradd --uid ${UID} --gid ${GID} -m ${USR}
 WORKDIR /home/${USR}/project
 
 
-# # TARGET: DEVELOPMENT
-# ##################################################################
-# FROM base AS development
+# TARGET: DEVELOPMENT
+##################################################################
+FROM base AS development
 
-# ENV NODE_ENV=development
-# ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
+ENV NODE_ENV=development
+ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
-# # Fish Shell
-# RUN apk add fish
-# RUN chsh -s $(which fish) ${USR}
+# Fish Shell
+RUN apk add fish
+RUN chsh -s $(which fish) ${USR}
 
-# # SSH Server 
-# RUN apk add openssh
-# RUN ssh-keygen -A
-# RUN passwd -d ${USR}
-# RUN echo 'PermitEmptyPasswords yes' >> /etc/ssh/sshd_config
+# SSH Server 
+RUN apk add openssh
+RUN ssh-keygen -A
+RUN passwd -d ${USR}
+RUN echo 'PermitEmptyPasswords yes' >> /etc/ssh/sshd_config
 
-# # Dev Tools
-# RUN apk add git
+# Dev Tools
+RUN apk add git
 
-# EXPOSE 8000 22
+EXPOSE 8000 22
 
-# USER root
+USER root
 
-# CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/sbin/sshd", "-D"]
 
 
 # # TARGET: BUILD 
