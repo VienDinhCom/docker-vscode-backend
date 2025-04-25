@@ -72,6 +72,6 @@ RUN chown -R ${UID}:${UID} /home/${USR}/project
 
 EXPOSE 8000
 
-# USER ${USR}
+USER ${USR}
 
 # CMD ["node", "dist/main.js"]
