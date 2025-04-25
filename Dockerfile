@@ -14,9 +14,9 @@ RUN useradd --uid ${UID} --gid ${GID} -m ${USR}
 WORKDIR /home/${USR}/project
 
 
-# # TARGET: DEVELOPMENT
-# ##################################################################
-# FROM base AS development
+# TARGET: DEVELOPMENT
+##################################################################
+FROM base AS development
 
 # ENV NODE_ENV=development
 # ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
