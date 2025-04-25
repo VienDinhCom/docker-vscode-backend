@@ -8,7 +8,7 @@ RUN apk add --no-cache shadow
 
 # Nonroot User
 RUN getent passwd ${UID} && userdel $(getent passwd ${UID} | cut -d: -f1)
-# RUN getent group ${GID} || groupadd --gid ${GID} ${USR}
+RUN getent group ${GID} || groupadd --gid ${GID} ${USR}
 # RUN useradd --uid ${UID} --gid ${GID} -m ${USR}
 
 # WORKDIR /home/${USR}/project
