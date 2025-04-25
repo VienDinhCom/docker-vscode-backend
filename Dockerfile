@@ -59,8 +59,8 @@ RUN npm run build
 ##################################################################
 FROM base AS production
 
-# ENV NODE_ENV=production
-# ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
+ENV NODE_ENV=production
+ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
 # COPY package*.json ./
 # RUN npm install
