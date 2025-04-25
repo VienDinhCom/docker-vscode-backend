@@ -65,8 +65,8 @@ ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 COPY package*.json ./
 RUN npm install
 
-# COPY --from=build /home/${USR}/project/dist ./dist
-# COPY --from=build /home/${USR}/project/public ./public
+COPY --from=build /home/${USR}/project/dist ./dist
+COPY --from=build /home/${USR}/project/public ./public
 
 # RUN chown -R ${UID}:${UID} /home/${USR}/project
 
