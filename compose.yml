@@ -15,9 +15,8 @@ services:
     ports:
       - '2280:22'
       - '8000:8000'
-#     profiles:
-#       - development
-
+    profiles:
+      - development
 #   production:
 #     # userns_mode: "keep-id"
 #     build:
