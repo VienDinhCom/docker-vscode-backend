@@ -21,9 +21,9 @@ FROM base AS development
 # ENV NODE_ENV=development
 # ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
-# # Fish Shell
-# RUN apk add fish
-# RUN chsh -s $(which fish) ${USR}
+# Fish Shell
+RUN apk add fish
+RUN chsh -s $(which fish) ${USR}
 
 # # SSH Server 
 # RUN apk add openssh
