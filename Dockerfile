@@ -4,7 +4,7 @@ ARG UID=1000
 ARG GID=1000
 ARG USR=backend
 
-# RUN apk add --no-cache shadow
+RUN apk add --no-cache shadow
 
 # # Nonroot User
 # RUN getent passwd ${UID} && userdel $(getent passwd ${UID} | cut -d: -f1)
