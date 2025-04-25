@@ -45,7 +45,7 @@ CMD ["/usr/sbin/sshd", "-D"]
 ##################################################################
 FROM base AS build
 
-# ENV NODE_ENV=development
+ENV NODE_ENV=development
 
 # COPY package*.json ./
 # RUN npm install
