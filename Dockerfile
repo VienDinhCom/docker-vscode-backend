@@ -68,7 +68,7 @@ RUN npm install
 COPY --from=build /home/${USR}/project/dist ./dist
 COPY --from=build /home/${USR}/project/public ./public
 
-# RUN chown -R ${UID}:${UID} /home/${USR}/project
+RUN chown -R ${UID}:${UID} /home/${USR}/project
 
 # EXPOSE 8000
 
