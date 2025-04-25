@@ -55,23 +55,23 @@ COPY . .
 RUN npm run build
 
 
-# # TARGET: PRODUCTION 
-# ##################################################################
-# FROM base AS production
+# TARGET: PRODUCTION 
+##################################################################
+FROM base AS production
 
-# ENV NODE_ENV=production
-# ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
+ENV NODE_ENV=production
+ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
-# COPY package*.json ./
-# RUN npm install
+COPY package*.json ./
+RUN npm install
 
-# COPY --from=build /home/${USR}/project/dist ./dist
-# COPY --from=build /home/${USR}/project/public ./public
+COPY --from=build /home/${USR}/project/dist ./dist
+COPY --from=build /home/${USR}/project/public ./public
 
-# RUN chown -R ${UID}:${UID} /home/${USR}/project
+RUN chown -R ${UID}:${UID} /home/${USR}/project
 
-# EXPOSE 8000
+EXPOSE 8000
 
-# USER ${USR}
+USER ${USR}
 
-# CMD ["node", "dist/main.js"]
+CMD ["node", "dist/main.js"]

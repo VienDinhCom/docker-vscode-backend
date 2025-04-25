@@ -1,6 +1,6 @@
 services:
   development:
-    #     # userns_mode: "keep-id"
+    # userns_mode: "keep-id"
     build:
       context: .
       target: development
@@ -17,17 +17,19 @@ services:
       - '8000:8000'
     profiles:
       - development
-#   production:
-#     # userns_mode: "keep-id"
-#     build:
-#       context: .
-#       target: production
-#       args:
-#         UID: ${UID}
-#         GID: ${GID}
-#     environment:
-#       - NODE_ENV=production
-#     ports:
-#       - '8000:8000'
-#     profiles:
-#       - production
+
+  production:
+    # userns_mode: 'keep-id'
+    build:
+      context: .
+      target: production
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://user:pass@host:5432/mydb
+    ports:
+      - '8000:8000'
+    profiles:
+      - production
