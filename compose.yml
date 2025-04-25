@@ -31,5 +31,5 @@ services:
       - DATABASE_URL=postgresql://user:pass@host:5432/mydb
     ports:
       - '8000:8000'
-#     profiles:
-#       - production
+    profiles:
+      - production
