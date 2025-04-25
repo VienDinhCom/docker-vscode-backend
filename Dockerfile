@@ -74,4 +74,4 @@ EXPOSE 8000
 
 USER ${USR}
 
-# CMD ["node", "dist/main.js"]
+CMD ["node", "dist/main.js"]
