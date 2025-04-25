@@ -12,8 +12,8 @@ services:
     environment:
       - NODE_ENV=development
       - DATABASE_URL=postgresql://user:pass@host:5432/mydb
-#     ports:
-#       - '2280:22'
+    ports:
+      - '2280:22'
 #       - '8000:8000'
 #     profiles:
 #       - development
