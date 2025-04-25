@@ -55,9 +55,9 @@ COPY . .
 RUN npm run build
 
 
-# # TARGET: PRODUCTION 
-# ##################################################################
-# FROM base AS production
+# TARGET: PRODUCTION 
+##################################################################
+FROM base AS production
 
 # ENV NODE_ENV=production
 # ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
