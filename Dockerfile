@@ -70,7 +70,7 @@ COPY --from=build /home/${USR}/project/public ./public
 
 RUN chown -R ${UID}:${UID} /home/${USR}/project
 
-# EXPOSE 8000
+EXPOSE 8000
 
 # USER ${USR}
 
