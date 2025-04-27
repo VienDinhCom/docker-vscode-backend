@@ -5,6 +5,7 @@ ARG UID=1000
 ARG GID=1000
 ARG PRJ=backend
 
+ENV PROJECT=${PRJ}
 ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
 # Nonroot User
