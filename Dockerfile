@@ -59,6 +59,10 @@ RUN npm install
 
 COPY . .
 
+RUN chown -R ${UID}:${UID} /home/${USR}/${PRJ}
+
+USER ${USR}
+
 RUN npm run build
 
 
