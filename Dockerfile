@@ -6,9 +6,8 @@ ARG USR=backend
 
 ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
-RUN apk add --no-cache shadow
-
 # Nonroot User
+RUN apk add --no-cache shadow
 RUN getent passwd ${UID} && userdel $(getent passwd ${UID} | cut -d: -f1) || true
 RUN getent group ${GID} || groupadd --gid ${GID} ${USR}
 RUN useradd --uid ${UID} --gid ${GID} -m ${USR}
