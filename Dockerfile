@@ -1,4 +1,4 @@
-FROM node:22-alpine AS base
+FROM alpine:3.21 AS base
 
 ARG UID=1000
 ARG GID=1000
@@ -7,9 +7,12 @@ ARG USR=backend
 RUN apk add --no-cache shadow
 
 # Nonroot User
-RUN getent passwd ${UID} && userdel $(getent passwd ${UID} | cut -d: -f1)
+RUN getent passwd ${UID} && userdel $(getent passwd ${UID} | cut -d: -f1) || true
 RUN getent group ${GID} || groupadd --gid ${GID} ${USR}
 RUN useradd --uid ${UID} --gid ${GID} -m ${USR}
+
+# Production Dependencies
+RUN apk add --no-cache nodejs npm
 
 WORKDIR /home/${USR}/project
 
@@ -31,8 +34,8 @@ RUN ssh-keygen -A
 RUN passwd -d ${USR}
 RUN echo 'PermitEmptyPasswords yes' >> /etc/ssh/sshd_config
 
-# Dev Tools
-RUN apk add git
+# Development Dependencies
+RUN apk add --no-cache coreutils findutils openssh-client curl git
 
 EXPOSE 8000 22
 
