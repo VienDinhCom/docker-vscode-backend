@@ -4,6 +4,8 @@ ARG UID=1000
 ARG GID=1000
 ARG USR=backend
 
+ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
+
 RUN apk add --no-cache shadow
 
 # Nonroot User
@@ -22,7 +24,6 @@ WORKDIR /home/${USR}/project
 FROM base AS development
 
 ENV NODE_ENV=development
-ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
 # Bash Shell
 RUN apk add --no-cache bash bash-completion
@@ -66,7 +67,6 @@ RUN npm run build
 FROM base AS production
 
 ENV NODE_ENV=production
-ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
 COPY package*.json ./
 RUN npm install
