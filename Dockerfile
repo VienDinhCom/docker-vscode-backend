@@ -85,4 +85,4 @@ EXPOSE 8000
 
 USER ${USR}
 
-CMD ["node", "dist/main.js"]
+CMD ["npm", "run", "start"]
