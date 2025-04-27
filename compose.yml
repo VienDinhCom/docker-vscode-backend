@@ -13,8 +13,8 @@ services:
       - NODE_ENV=development
       - DATABASE_URL=postgresql://user:pass@host:5432/mydb
     ports:
-      - '2280:22'
       - '8000:8000'
+      - '58000:58000'
     profiles:
       - development
 

@@ -41,11 +41,11 @@ RUN wget -q https://vscode.download.prss.microsoft.com/dbazure/download/stable/1
 # Development Dependencies
 RUN apk add --no-cache coreutils findutils openssh-client curl git
 
-EXPOSE 3000 53000 
+EXPOSE 8000 58000 
 
 USER ${USR}
 
-CMD ["sh", "-c", "code serve-web --host 0.0.0.0 --port 53000 --accept-server-license-terms --without-connection-token --server-data-dir ${HOME}/${PROJECT}/.vscode/server"]
+CMD ["sh", "-c", "code serve-web --host 0.0.0.0 --port 58000 --accept-server-license-terms --without-connection-token --server-data-dir ${HOME}/${PROJECT}/.vscode/server"]
 
 
 # TARGET: BUILD 
