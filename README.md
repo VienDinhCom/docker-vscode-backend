@@ -1,4 +1,4 @@
-# Docker Flow for Back End Development
+# Docker VSCode for Back End Development
 
 ## Development
 
@@ -32,7 +32,7 @@ Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
 ## Production
 
-Build the production image and run it with the host's `UID` and `GID`.
+Build the production image and run it.
 
 ```
 docker compose --profile production up --build
