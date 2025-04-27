@@ -1,8 +1,9 @@
 FROM alpine:3.21 AS base
 
+ARG USR=user
 ARG UID=1000
 ARG GID=1000
-ARG USR=backend
+ARG PRJ=backend
 
 ENV DATABASE_URL=postgresql://user:pass@host:5432/mydb
 
@@ -15,7 +16,7 @@ RUN useradd --uid ${UID} --gid ${GID} -m ${USR}
 # Production Dependencies
 RUN apk add --no-cache nodejs npm
 
-WORKDIR /home/${USR}/project
+WORKDIR /home/${USR}/${PRJ}
 
 
 # TARGET: DEVELOPMENT
@@ -70,10 +71,10 @@ ENV NODE_ENV=production
 COPY package*.json ./
 RUN npm install
 
-COPY --from=build /home/${USR}/project/dist ./dist
-COPY --from=build /home/${USR}/project/public ./public
+COPY --from=build /home/${USR}/${PRJ}/dist ./dist
+COPY --from=build /home/${USR}/${PRJ}/public ./public
 
-RUN chown -R ${UID}:${UID} /home/${USR}/project
+RUN chown -R ${UID}:${UID} /home/${USR}/${PRJ}
 
 EXPOSE 8000
 
