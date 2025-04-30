@@ -49,16 +49,16 @@ USER ${USR}
 CMD ["sh", "-c", "code serve-web --host 0.0.0.0 --port 58000 --accept-server-license-terms --without-connection-token --server-data-dir ${HOME}/${PROJECT}/.vscode/server"]
 
 
-# TARGET: BUILD 
+# TARGET: BUILDER
 ##################################################################
-FROM base AS build
+FROM base AS builder
 
 ENV NODE_ENV=development
 
-COPY package*.json ./
+COPY ../package*.json ./
 RUN npm install
 
-COPY . .
+COPY .. .
 
 RUN chown -R ${UID}:${UID} /home/${USR}/${PRJ}
 
@@ -76,8 +76,8 @@ ENV NODE_ENV=production
 COPY package*.json ./
 RUN npm install
 
-COPY --from=build /home/${USR}/${PRJ}/dist ./dist
-COPY --from=build /home/${USR}/${PRJ}/public ./public
+COPY --from=builder /home/${USR}/${PRJ}/dist ./dist
+COPY --from=builder /home/${USR}/${PRJ}/public ./public
 
 RUN chown -R ${UID}:${UID} /home/${USR}/${PRJ}
 
