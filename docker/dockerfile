@@ -55,10 +55,10 @@ FROM base AS builder
 
 ENV NODE_ENV=development
 
-COPY ../package*.json ./
+COPY package*.json ./
 RUN npm install
 
-COPY .. .
+COPY . .
 
 RUN chown -R ${UID}:${UID} /home/${USR}/${PRJ}
 
