@@ -9,3 +9,11 @@ services:
     ports:
       - '8000:8000'
     restart: unless-stopped
+
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    restart: unless-stopped
