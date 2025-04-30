@@ -1,0 +1,12 @@
+services:
+  backend:
+    # userns_mode: "keep-id"
+    build:
+      target: development
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    volumes:
+      - ../:/home/user/backend
+    ports:
+      - '58000:58000'
