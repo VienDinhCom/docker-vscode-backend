@@ -9,6 +9,8 @@ services:
     ports:
       - '8000:8000'
     restart: unless-stopped
+    depends_on:
+      - database
 
   database:
     image: postgres:17-alpine
