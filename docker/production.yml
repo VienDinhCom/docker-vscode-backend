@@ -10,9 +10,9 @@ services:
       - '8000:8000'
     restart: unless-stopped
     depends_on:
-      - database
+      - postgres
 
-  database:
+  postgres:
     image: postgres:17-alpine
     environment:
       POSTGRES_USER: postgres
