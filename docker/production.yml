@@ -3,7 +3,7 @@ services:
     build:
       context: ..
       target: production
-      dockerfile: docker/dockerfile
+      dockerfile: docker/image/dockerfile
     platform: linux/amd64
     environment:
       - DATABASE_URL=${DATABASE_URL}

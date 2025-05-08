@@ -39,7 +39,7 @@ Build the development image and run it with the host's `UID` and `GID`.
 UID=$(id -u) GID=$(id -g) docker compose -f docker/development.yml up --build
 ```
 
-Open [http://localhost:58000/?folder=/home/user/backend](http://localhost:58000/?folder=/home/user/backend) to develop inside the container with Visual Studio Code directly in your browser.
+Open [http://localhost:58000](http://localhost:58000) to develop inside the container with Visual Studio Code directly in your browser.
 
 Install project dependencies.
 
